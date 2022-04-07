@@ -1,4 +1,4 @@
-# Welcome to my website!
+# **Yo!** Welcome to my website!
 
 #### [Instagram](instagram.com/jahnpahl)
 #### [LinkedIn](https://www.linkedin.com/in/johnpaulonza/)
