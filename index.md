@@ -19,3 +19,5 @@
 1. Snooze alarm at least 3 times
 2. Brush teeth and wash face
 3. School :|
+
+![ICANT](https://cdn.frankerfacez.com/emoticon/569240/4)
