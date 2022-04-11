@@ -101,5 +101,112 @@ Now we're going to learn how to move files remotely from the terminal. As coders
 
 You won't need to do any of those with what I am about to teach you in the following steps. We will be utilizing the *scp* command from your client(local computer) in order to transfer files to the remote server.
 
-1. Create a new file 
+1. Create a new file MyInfo.java and write this sample code:
 
+        class MyInfo {
+            public static void main(String[] args) {
+            System.out.println(System.getProperty("os.name"));
+            System.out.println(System.getProperty("user.name"));
+            System.out.println(System.getProperty("user.home"));
+            System.out.println(System.getProperty("user.dir"));
+            }
+        }
+     (If you have java installed on your computer, try to run *javac* then *java* and see what it does)
+
+2. Once you've created the file, run this command from your client terminal(**not** the logged in ssh one):
+
+        scp MyInfo.java cs15lsp22zzz@ieng6.ucsd.edu:~/
+    *Don't forget to replace the 'sp22zzz' with your unique account name :)*
+
+    * You'll be prompted to put your password; type it out press *Enter*:
+    ![scp-command](Screenshot_7.png)
+
+    * Now in the ssh terminal, run the *ls* command and you should see MyInfo.java show up:
+    ![ls-after-scp](Screenshot_8.png)
+    * Next, run these two commands in the same terminal:
+            
+            javac MyInfo.java
+            java MyInfo
+        This is my output, yours should look very similar:
+        ![ssh-output](Screenshot_9.png)
+
+<br>
+<br>
+
+---
+## **Setting an SSH key**
+---
+
+<br>
+
+You now have the basics of file transfer. But wasn't it annoying having to type out/copy&paste your long password in a bunch of steps throughout? 
+
+Do not worry, there is a solution! ssh keys. A program called ssh-keygen creates a *public key* and a *private key*. The idea is that the public key can be copied to a particular location in the remote server, while the private key is stored somewhere in the client. The *ssh* command is able to read both files and connect you without having to input your password.
+
+* On the **client** terminal, run the following commands
+
+    For **Windows**, you need to run this line first:
+
+        ssh-keygen -t ed25519
+    
+    For everyone else, run this command(*For windows, this is the next command you run*)
+
+        ssh-keygen
+        
+    ### **DO NOT ENTER A PASSPHRASE! I also used the default save path(see screenshot below)**
+
+    <br>
+
+    ![ssh-keygen](Screenshot_10.png)
+
+    You now have two new files, ***id_rsa***(private key) and ***id_rsa.pub***(public key).
+
+    <br>
+    
+* The next step is to copy the public key into the remote server. To do this, first log into your remote server:
+
+        ssh cs15lsp22zz@ieng6.ucsd.edu
+    
+    *Don't forget to replace the 'sp22zzz' with your unique account name :)*
+
+* Run the command:
+
+        mkdir.ssh
+
+* Now, go back to your client terminal(***not*** the ssh logged in one) and run this command, replacing necessary info to match yours:
+
+        scp /Users/<user-name>/.ssh/id_rsa.pub cs15lsp22zzz@ieng6.ucsd.edu:~/.ssh/authorized_keys
+
+    *You can find the path from when you generated the keygen and also replace the 'sp22zzz' in the ieng6 :)*
+
+Try to log back into your ssh, you should automatically be logged in as soon as you press Enter. If not, don't be afraid to ask a neighbor or a TA!
+
+<br>
+<br>
+
+Congrats! you have fully setup your local computer to be able to work remotely. With more practice, you will work even faster!
+
+---
+## **Optimizing Remote Running**  
+---
+
+<br>
+
+All that's left is to try and improve what we've setup so far! 
+
+I will list some of the many things you could do to make your work flow even more efficient:
+
+* Writing a command in quotes at the end of the ssh command allows you to log in remotely, run the command, then immediately exit
+
+        ssh cs15lsp22zzz@ieng6.ucsd.edu "ls -lat"
+
+* Adding semicolons allows you to run multiple lines of commands
+
+        cp MyInfo.java MyInfoCopy.java; javac MyInfoCopy.java; java MyInfoCopy
+
+* The up arrow allows you to recall the last command you ran
+
+* Type a few letters of a file or directory and press Tab. The terminal will try to autocomplete the rest of whatever you're looking for
+
+
+There are obviously many more shortcuts and tips that I have yet to learn, so try to find new ones on your own and share them with others :D
