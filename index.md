@@ -2,8 +2,9 @@
 # ![ICANT](https://cdn.frankerfacez.com/emoticon/569240/4)
 
 ## Link to lab reports:
-  [Lab Report 1](https://johnpaulonza.github.io/cse15l-lab-reports/lab-report-1-week-2)
-  [Lab Report 2](https://johnpaulonza.github.io/cse15l-lab-reports/lab-report-1-week-4)
+ ### [Lab Report 1](https://johnpaulonza.github.io/cse15l-lab-reports/lab-report-1-week-2)
+  
+ ### [Lab Report 2](https://johnpaulonza.github.io/cse15l-lab-reports/lab-report-1-week-4)
 
 #### [Instagram](instagram.com/jahnpahl)
 #### [LinkedIn](https://www.linkedin.com/in/johnpaulonza/)
