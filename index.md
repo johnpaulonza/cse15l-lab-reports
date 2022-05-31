@@ -8,6 +8,8 @@
  
  ### [Lab Report 3](https://johnpaulonza.github.io/cse15l-lab-reports/lab-report-3-week-6)
 
+ ### [Lab Report 4](https://johnpaulonza.github.io/cse15l-lab-reports/lab-report-4-week-8)
+
 #### [Instagram](instagram.com/jahnpahl)
 #### [LinkedIn](https://www.linkedin.com/in/johnpaulonza/)
 #### [Youtube](https://www.youtube.com/channel/UCqKKCI1FJ8lMbUjSUDr9w9w)
